@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example ☁️ Pale Nimbus</title>
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <p><i>Pale Nimbus</i></p>
+        <h3>Add this dynamic business card to your web development project.</h3>
+        <p>
+          Use it in your own projects by importing the module and adding the
+          component to your HTML. Detailed instructions can be found
+          <a href="#">here</a>, and a guide to web components in general appears
+          on <a href="#">MDN</a>.
+        </p>
+      </hgroup>
+    </header>
+    <main>
+      <section id="control">
+        <script>
+          function toggleModal() {
+            document
+              .getElementById("wrapper-customize")
+              .classList.toggle("open");
+          }
+        </script>
+        <div class="button-group">
+          <button class="primary" onclick="toggleModal()">Customize</button>
+          <button>Copy HTML</button>
+        </div>
+      </section>
+      <section id="demo">
+        <business-card
+          first-name="Paul"
+          last-name="Allen"
+          phone="(212)-555-5555"
+          org="Pierce & Pierce"
+          team="Mergers and Acquisitions"
+          org-title="Vice President"
+          street="667 Wall St."
+          city="New York"
+          state="NY"
+          zip="10005"
+        ></business-card>
+      </section>
+    </main>
+    <div id="wrapper-customize" class="modal">
+      <div id="customize">
+        <button class="close" onclick="toggleModal()">&times;</button>
+        <header>
+          <h3>Customize</h3>
+        </header>
+        <main>
+          <form>
+            <fieldset>
+              <legend>Personal Information</legend>
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                placeholder="First Name"
+              />
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Last Name"
+              />
+            </fieldset>
+            <fieldset>
+              <legend>Company Information</legend>
+              <label for="org-title">Title</label>
+              <input
+                type="text"
+                id="org-title"
+                name="org-title"
+                placeholder="Organization Title"
+              />
+              <label for="org">Organization</label>
+              <input
+                type="text"
+                id="org"
+                name="org"
+                placeholder="Organization"
+              />
+              <label for="team">Team</label>
+              <input type="text" id="team" name="team" placeholder="Team" />
+            </fieldset>
+            <fieldset>
+              <legend>Contact Information</legend>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Phone" />
+              <label for="street">Street</label>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                placeholder="Street"
+              />
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City" />
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" placeholder="State" />
+              <label for="zip">Zip</label>
+              <input type="text" id="zip" name="zip" placeholder="Zip" />
+            </fieldset>
+            <button type="submit">Update</button>
+          </form>
+          <script>
+            function closeModal() {
+              document
+                .getElementById("wrapper-customize")
+                .classList.remove("open");
+            }
+            function updateBusinessCard(event) {
+              event.preventDefault();
+              const businessCard = document.querySelector("business-card");
+              const form = event.target;
+              const formData = new FormData(form);
+              const data = Object.fromEntries(formData);
+              businessCard.update(data);
+              closeModal();
+            }
+            document
+              .querySelector("form")
+              .addEventListener("submit", updateBusinessCard);
+          </script>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

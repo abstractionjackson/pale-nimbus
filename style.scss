@@ -1,0 +1,212 @@
+$font-primary: 'Roboto', sans-serif;
+$bg-primary: #f5f5f5;
+$bg-secondary: #f0f0f0;
+$bg-tertiary: #666;
+$color-primary: #333;
+$color-secondary: #666;
+$color-tertiary: #fff;
+$blue: #007bff;
+
+a:visited {
+  color: initial;
+}
+button {
+  background-color: $bg-secondary;
+  color: $color-primary;
+  border: 1px solid $bg-tertiary;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px $bg-tertiary;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background-color: $bg-tertiary;
+    color: $color-tertiary;
+    text-shadow: 1px 1px 1px $bg-secondary;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2);
+  }
+}
+button.primary {
+  // blue bg, white color, shading, monospace font
+  background-color: $blue;
+  color: $color-tertiary;
+}
+html, body {
+  font-family: $font-primary;
+  color: $color-primary;
+  background-color: $bg-primary;
+  display: flex;
+  flex-direction: column;
+}
+body > header {
+  padding: 2rem;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+  width: 100%;
+  background-color: $bg-secondary;
+  hgroup {
+    background-color: $bg-primary;
+    border: 2px solid $bg-tertiary;
+    padding: 1rem;
+    width: fit-content;
+    border-radius: 1rem;
+    min-width: 420px;
+    max-width: 568px;
+    line-height: 1.5em;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+body > main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right:auto;
+  margin-top: 2rem;
+  background-color: burlywood;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border: 2px solid $bg-tertiary;
+  height: min-content;
+  > section {
+    margin: 2rem;
+    max-width: 768px;
+  }
+  section#control {
+    margin: 1rem;
+    button {
+      margin: 0 0.5rem;
+    }
+  }
+  section#demo {
+    header {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      background-color: $bg-secondary;
+      padding: 2rem;
+      border-bottom: 2px solid $bg-tertiary;
+      h3 {
+        margin: 0;
+        font-size: 2em;
+      }
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+      business-card {
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+      }
+    }
+  }
+}
+.modal {
+  display: none;
+}
+.modal.open {
+  display: block;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #00000095;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.modal button.close {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: translate(-18px, -16px);
+  background-color: $color-primary;
+  color: $color-tertiary;
+  border: 1px solid $color-tertiary;
+  outline: 1px solid $color-primary;
+  &:hover {
+    color: $color-tertiary;
+    border-color: $blue;
+    outline-color: $color-primary;
+  }
+}
+div#customize {
+  background-color: $bg-secondary;
+  border: 2px solid black;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  max-width: 768px;
+  margin: auto;
+  header {
+    background-color: burlywood;
+    padding: 2rem;
+    border-bottom: 2px solid $bg-tertiary;
+    h3 {
+      font-size: 1.5em;;
+      margin: 0;
+    }
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    form {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 1.2rem;
+      grid-template-rows: repeat(2, auto);
+      row-gap: 2rem;
+      line-height: 1.5em;
+      // add a rem gap wetween form elements
+      input {
+        font-size: 1em;;
+        margin-bottom: 1rem;
+        border: none;
+        border-bottom: 2px solid $color-primary;
+        background-color: transparent;
+      }
+      input:focus {
+        outline: none;
+      }
+      fieldset {
+        background-color: $bg-primary;
+        border: none;
+        legend {
+          font-size: 1.25em;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          border: 1px solid $bg-tertiary;
+          border-radius: 1rem;
+          padding: 0.5rem;
+        }
+        display: flex;
+        flex-direction: column;
+        .container {
+          display: flex; 
+          flex-direction: row;
+        }
+        label {
+          margin-right: 1rem;
+        }
+      }
+      // submit button
+      button[type="submit"] {
+        background-color: $blue;
+        color: $color-tertiary;
+      }
+    }
+    
+  }
+}

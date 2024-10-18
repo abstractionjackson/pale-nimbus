@@ -1,0 +1,44 @@
+{
+    "attributes": [
+        {
+            "name": "first-name",
+            "target": "first-name"
+        },
+        {
+            "name": "last-name",
+            "target": "last-name"
+        },
+        {
+            "name": "org-title",
+            "target": "org-title"
+        },
+        {
+            "name": "org",
+            "target": "org"
+        },
+        {
+            "team": "team",
+            "target": "team"
+        },
+        {
+            "name": "phone",
+            "target": "phone"
+        },
+        {
+            "street": "street",
+            "target": "street"
+        },
+        {
+            "city": "city",
+            "target": "city"
+        },
+        {
+            "state": "state",
+            "target": "state"
+        },
+        {
+            "zip": "zip",
+            "target": "zip"
+        }
+    ]
+}
