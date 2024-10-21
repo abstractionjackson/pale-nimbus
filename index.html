@@ -5,7 +5,11 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Example ☁️ Pale Nimbus</title>
-    <script type="module" src="/main.js"></script>
+    <script type="module">
+      import "./style.scss";
+      import { BusinessCard } from "./src";
+      customElements.define("business-card", BusinessCard);
+    </script>
   </head>
   <body>
     <header>
