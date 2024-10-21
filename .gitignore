@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Allow dist and docs to be added by GitHub Actions
+!/.github/
+!/.github/workflows/
+!/.github/workflows/deploy.yml
