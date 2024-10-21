@@ -14,9 +14,11 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:demo": "vite --mode demo",
     "build": "vite build",
     "build:lib": "vite build",
-    "build:example": "vite build --mode example",
+    "build:demo": "vite build --mode demo",
+    "build:all": "npm run build:lib && npm run build:demo",
     "preview": "vite preview"
   },
   "devDependencies": {

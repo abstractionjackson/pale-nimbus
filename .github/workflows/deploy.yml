@@ -1,0 +1,43 @@
+name: Build and Deploy Library and Demo Site
+
+# Run the workflow on pushes to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Adjust the Node.js version if needed
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the library (to /dist)
+      - name: Build the library
+        run: npm run build:lib
+
+      # Step 5: Build the demo site (to /docs)
+      - name: Build the demo site
+        run: npm run build:demo
+
+      # Step 6: Commit the built assets
+      - name: Commit and push the changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dist/ docs/
+          git commit -m "Build and deploy the library and demo site"
+          git push
