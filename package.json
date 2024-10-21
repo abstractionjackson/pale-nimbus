@@ -3,6 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/pale-nimbus.umd.js",
+  "module": "./dist/pale-nimbus.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pale-nimbus.js",
+      "require": "./dist/pale-nimbus.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
