@@ -38,6 +38,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add dist/ docs/
+          git add -f dist/ docs/
           git commit -m "Build and deploy the library and demo site"
           git push
