@@ -1,5 +1,5 @@
 import "./style.scss";
-import { defineCustomElement } from "./src/utils";
-import BusinessCard from "./src/BusinessCard";
 
-defineCustomElement("business-card", BusinessCard);
+import { BusinessCard } from "./src";
+
+customElements.define("business-card", BusinessCard);
