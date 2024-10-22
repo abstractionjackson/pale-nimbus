@@ -1,5 +1,6 @@
 #+TITLE: Pale Nimbus
 #+AUTHOR: abstractionjackson
+[[public/inspection.png][inspection]]
 * Overview
 Pale Nimbus is a web component library for modern digitial business. Inspired by the yuppie classic /American Pyscho/, the components leverage vanilla HTML, Sass CSS, and the Web Compoentent standard to implement business cards, resumes, CVs, invoices, and more in a subtle, tasteful aeesthetic. This library is open source under VHS, and due back within 30 days.
 * Features
