@@ -73,7 +73,7 @@ const s = `<div class="card">
 ], r = {
   attributes: o
 };
-class c extends HTMLElement {
+class p extends HTMLElement {
   constructor() {
     super(), this.attachShadow({ mode: "open" }), this._render(), this._initializeTextContent();
   }
@@ -101,6 +101,7 @@ class c extends HTMLElement {
     }
   }
 }
+customElements.define("business-card", p);
 export {
-  c as default
+  p as BusinessCard
 };
