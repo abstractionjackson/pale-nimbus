@@ -11,18 +11,6 @@
   </head>
   <body>
     <header>
-      <hgroup>
-        <p><i>Pale Nimbus</i></p>
-        <h3>Add this dynamic business card to your web development project.</h3>
-        <p>
-          Use it in your own projects by importing the module and adding the
-          component to your HTML. Detailed instructions can be found
-          <a href="#">here</a>, and a guide to web components in general appears
-          on <a href="#">MDN</a>.
-        </p>
-      </hgroup>
-    </header>
-    <main>
       <section id="control">
         <script>
           function toggleModal() {
@@ -30,12 +18,29 @@
               .getElementById("wrapper-customize")
               .classList.toggle("open");
           }
+          function copyHTMLToClipboard() {
+            const html = document.getElementById("demo").innerHTML;
+            navigator.clipboard.writeText(html);
+            setCopyBtnText("Copied!");
+          }
+          function setCopyBtnText(text = "Copy HTML") {
+            document.getElementById("copy-html").textContent = text;
+          }
+          document.addEventListener("click", event => {
+            if (event.target.id !== "copy-html") {
+              setCopyBtnText();
+            }
+          });
         </script>
         <div class="button-group">
           <button class="primary" onclick="toggleModal()">Customize</button>
-          <button>Copy HTML</button>
+          <button id="copy-html" onclick="copyHTMLToClipboard()">
+            Copy HTML
+          </button>
         </div>
       </section>
+    </header>
+    <main>
       <section id="demo">
         <business-card
           first-name="Paul"
@@ -51,6 +56,16 @@
         ></business-card>
       </section>
     </main>
+    <footer>
+      <p><i>Pale Nimbus</i></p>
+      <h3>Add this dynamic business card to your web development project.</h3>
+      <p>
+        Use it in your own projects by importing the module and adding the
+        component to your HTML. Detailed instructions can be found
+        <a href="#">here</a>, and a guide to web components in general appears
+        on <a href="#">MDN</a>.
+      </p>
+    </footer>
     <div id="wrapper-customize" class="modal">
       <div id="customize">
         <button class="close" onclick="toggleModal()">&times;</button>
