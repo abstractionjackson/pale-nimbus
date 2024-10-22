@@ -23,5 +23,15 @@ export default defineConfig(({ mode }) => {
       },
     };
   }
+  if (mode === "development") {
+    return {
+      ...config,
+      root: "demo",
+      server: {
+        port: 3000,
+        open: true,
+      },
+    };
+  }
   return config;
 });
