@@ -4,21 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/pale-nimbus.umd.js",
   "module": "./dist/pale-nimbus.js",
   "exports": {
     ".": {
-      "import": "./dist/pale-nimbus.js",
-      "require": "./dist/pale-nimbus.umd.js"
+      "import": "./dist/pale-nimbus.js"
     }
   },
   "scripts": {
     "dev": "vite",
     "dev:demo": "vite --mode demo",
-    "build": "vite build",
+    "build": "vite build && vite build --mode demo",
     "build:lib": "vite build",
     "build:demo": "vite build --mode demo",
-    "build:all": "npm run build:lib && npm run build:demo",
     "preview": "vite preview"
   },
   "devDependencies": {
