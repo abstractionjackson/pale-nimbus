@@ -1,0 +1,40 @@
+#+TITLE: README
+#+AUTHOR: abstractionjackson
+* README
+** Overview
+Pale Nimbus is a web component library for modern digitial business. Inspired by the yuppie classic /American Pyscho/, the components leverage vanilla HTML, Sass CSS, and the Web Compoentent standard to implement business cards, resumes, CVs, invoices, and more in a subtle, tasteful aeesthetic. This library is open source under VHS, and due back within 30 days.
+** Features
+- Customizable Business Card component
+- Support for name, company, title, phone, and address
+- Compatible across browsers
+** Install
+Include the library in your HTML:
+
+#+BEGIN_SRC HTML
+<script type="module" src="https://cdn.jsdelivr.net/gh/abstractionjackson/pale-nimbus/dist/pale-nimbus.js" />
+#+END_SRC
+
+** Use
+*** Add the Tag
+Pale Nimbus provides:
+- "busines-card"
+**** Example
+
+#+BEGIN_SRC HTML
+<business-card></business-card>
+#+END_SRC
+
+*** Customize the Attricubes
+Read the [docs](#) (coming soon) for a list of component attributes.
+**** Example
+
+#+BEGIN_SRC HTML
+<business-card
+    first-name="Patrick"
+    last-name="Bateman"
+    org-title="Vice President"
+    > </business-card>
+#+END_SRC
+
+** Demo
+A demo that features interactive customization lives [here](https://abstractionjackson.github.io/pale-nimbus).
