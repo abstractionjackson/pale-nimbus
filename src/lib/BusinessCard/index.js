@@ -25,8 +25,15 @@ export default class BusinessCard extends HTMLElement {
   }
   update(values) {
     for (const key in values) {
-      const target = this.shadowRoot.getElementById(key);
-      target.textContent = values[key];
+      if (this._isValid(key, values[key])) {
+        console.info(`Setting ${key} to ${values[key]}`);
+        this.shadowRoot.getElementById(key).textContent = this._format(
+          key,
+          values[key]
+        );
+      } else {
+        console.error(`Invalid value for ${key}: ${values[key]}`);
+      }
     }
   }
   _initializeTextContent() {
@@ -35,6 +42,40 @@ export default class BusinessCard extends HTMLElement {
         value = this.shadowRoot.host.getAttribute(name),
         target = this.shadowRoot.getElementById(attribute["target"]);
       target.textContent = value || target.textContent;
+    }
+  }
+  _isValid(key, value) {
+    switch (key) {
+      case "phone":
+        return /^\d{10}$/.test(value);
+      case "first-name":
+      case "last-name":
+      case "org":
+      case "org-title":
+      case "team":
+      case "city":
+      case "state":
+      case "zip":
+        return value.length >= 1;
+      default:
+        break;
+    }
+  }
+  _format(key, value) {
+    switch (key) {
+      case "phone":
+        return value.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+      case "first-name":
+      case "last-name":
+      case "org":
+      case "org-title":
+      case "team":
+      case "city":
+      case "state":
+      case "zip":
+        return value;
+      default:
+        break;
     }
   }
 }
